@@ -7,7 +7,7 @@ pipeline
         {
             steps
             {
-                sh 'make main/'
+                sh 'g++ task5.cpp'
                 echo 'build stage successful'
                 build job: 'pes1ug20cs089'
             }
@@ -16,7 +16,7 @@ pipeline
         {
             steps
             {
-                sh './hello_exec'
+                sh './a.out'
                 echo 'test stage successful'
             }
         }
