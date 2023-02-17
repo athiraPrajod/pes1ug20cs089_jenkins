@@ -1,0 +1,36 @@
+pipeline {
+	agent any
+	stages {
+		stage('Build') {
+			steps {
+				sh 'gcc task5.c -o task5'
+				echo 'Build stage successful'
+			}
+		}
+		
+		stage('Test') {
+			steps {
+				sh './task5'
+				echo 'Test stage successful'
+				post {
+					always {
+						junit 'target/surefire-reports/*.xml'
+					}
+				}
+			}
+		}
+		stage('Deploy') {
+			steps {
+				echo 'Deployment successful'
+			}
+		}
+	}
+	
+	post {
+		failure {
+			echo 'Pipeline failed'
+		}
+	}
+}
+
+//c3a2c733c46146098d643f366d116d23
