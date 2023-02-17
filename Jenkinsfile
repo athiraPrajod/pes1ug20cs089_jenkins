@@ -9,7 +9,7 @@ pipeline
             {
                 sh 'g++ task5.cpp'
                 echo 'build stage successful'
-                build job: 'pes1ug20cs089'
+           
             }
         }
         stage ('Test')
